@@ -32,6 +32,7 @@ body {
     color: var(--cor-principal);
     text-align: center;
     margin-bottom: 30px;
+    /* Sombra de texto removida (a seu pedido) */
     text-shadow: none; 
 }
 
@@ -194,44 +195,53 @@ body {
 
 @media (max-width: 768px) {
     
-    /* 1. Empilhamento das colunas */
+    /* 1. Empilhamento das colunas (CORREÇÃO CHAVE) */
     .conteudo-duas-colunas {
         flex-direction: column;
-        gap: 30px; /* Reduz a distância entre os blocos */
-    }
-
-    /* 2. Padding geral menor para usar mais espaço */
-    .container-principal {
-        padding: 20px;
+        gap: 30px; 
+        /* Força a largura para 100% no modo de coluna */
+        width: 100%; 
     }
     
-    /* 3. Títulos menores para telas pequenas */
+    /* 2. Padding e margens menores no container principal */
+    .container-principal {
+        padding: 20px 15px; /* Mais estreito nas laterais */
+        box-sizing: border-box; 
+    }
+
+    /* 3. Colunas devem ocupar 100% de largura no modo empilhado */
+    .coluna-upload, .coluna-paleta {
+        flex: 0 0 100%; /* Força a coluna a ser 100% da largura */
+    }
+
+    /* 4. Títulos menores para telas pequenas */
     .coluna-upload h2, .coluna-paleta h2 {
         font-size: 1.5em;
     }
 
-    /* 4. Input e botão de escolher devem ocupar a largura total */
+    /* 5. Input e botão de escolher devem ocupar a largura total */
     .input-container {
-        flex-direction: column;
+        flex-direction: row; 
+        gap: 5px; 
     }
-
+    
     #file-name {
-        border-radius: 4px; /* Remove o ajuste de canto */
-        margin-bottom: 10px;
+        flex-grow: 1;
+        border-radius: 4px 0 0 4px; 
     }
 
     .btn-laranja-neon {
-        border-radius: 4px; 
+        border-radius: 0 4px 4px 0; 
         margin-left: 0;
     }
-    
-    /* 5. Centraliza o botão 'Limpar' */
+
+    /* 6. Centraliza o botão 'Limpar' */
     .btn-limpar {
-        max-width: none;
+        max-width: 100%;
         width: 100%;
     }
 
-    /* 6. Quadrados de cor ligeiramente menores para caber mais na linha */
+    /* 7. Quadrados de cor ligeiramente menores para caber mais na linha */
     .cor-quadrado {
         width: 65px;
         height: 65px;
@@ -240,7 +250,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* 7. Ajuste fino em telas muito pequenas */
+    /* 8. Ajuste fino em telas muito pequenas */
     .cor-quadrado {
         width: 55px;
         height: 55px;
