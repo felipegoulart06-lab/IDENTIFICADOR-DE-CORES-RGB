@@ -1,0 +1,194 @@
+/* Variáveis de Cores - AJUSTADAS PARA #FF6600 */
+:root {
+    --cor-principal: #FF6600; /* SEU LARANJA ESPECÍFICO */
+    --cor-fundo-dark: #121212; /* Fundo Escuro do Body */
+    --cor-caixa: #1E1E1E; /* Fundo da Caixa */
+    --cor-texto: #FFFFFF;
+    --cor-borda-neon: #FF6600; /* Borda/Brilho usa o seu laranja */
+    --cor-texto-secundario: #D4D4D4;
+}
+
+/* Reset Básico e Fundo Dark */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cor-fundo-dark);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+}
+
+.container-principal {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--cor-caixa);
+    padding: 40px;
+    border-radius: 12px;
+    /* Box Shadow usa o novo LARANJA NEON */
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.7); 
+    border: 1px solid var(--cor-borda-neon);
+}
+
+.header h1 {
+    color: var(--cor-principal);
+    text-align: center;
+    margin-bottom: 30px;
+    /* LINHA ATUALIZADA: Sombra de texto removida */
+    text-shadow: none; 
+}
+
+.conteudo-duas-colunas {
+    display: flex;
+    gap: 40px;
+}
+
+.coluna-upload, .coluna-paleta {
+    flex: 1;
+}
+
+.coluna-upload h2, .coluna-paleta h2 {
+    color: var(--cor-principal);
+    border-bottom: 2px solid var(--cor-principal);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- Estilo de Input e Botões --- */
+
+.input-container {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+#file-name {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--cor-texto-secundario);
+    border-radius: 4px 0 0 4px;
+    background-color: var(--cor-fundo-dark);
+    color: var(--cor-texto-secundario);
+}
+
+.btn-laranja-neon, .btn-limpar {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-laranja-neon {
+    background-color: var(--cor-principal);
+    color: var(--cor-texto);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin-left: -1px; /* Ajuste visual */
+    /* Box shadow menor no botão, usando a cor nova */
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5); 
+}
+
+.btn-laranja-neon:hover {
+    /* Laranja ligeiramente mais claro no hover */
+    background-color: #FF771A; 
+}
+
+.btn-limpar {
+    background-color: #444;
+    color: var(--cor-texto);
+    border-radius: 4px;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 150px;
+}
+
+.btn-limpar:hover {
+    background-color: #666;
+}
+
+
+/* --- Área de Drag and Drop --- */
+
+.drop-area {
+    /* Borda tracejada usa o novo laranja */
+    border: 3px dashed var(--cor-borda-neon);
+    border-radius: 8px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 15px;
+    background-color: #242424;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.drop-area.highlight {
+    background-color: #333333;
+    /* Highlight usa o novo laranja */
+    border-color: var(--cor-principal);
+    color: var(--cor-principal);
+}
+
+
+/* --- Coluna de Visualização --- */
+
+.image-preview-area {
+    min-height: 250px;
+    border: 1px solid var(--cor-texto-secundario);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #242424;
+}
+
+.image-preview-area img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* --- Paleta de Cores --- */
+
+.paleta-cores-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cor-item {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cor-item:hover {
+    transform: translateY(-5px);
+}
+
+.cor-quadrado {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    border: 2px solid var(--cor-caixa); 
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.cor-hex {
+    font-size: 0.85em;
+    color: var(--cor-texto-secundario);
+}
+
+.status-message {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    /* Mensagem de status usa o novo laranja */
+    color: var(--cor-principal);
+}
