@@ -32,10 +32,10 @@ body {
     color: var(--cor-principal);
     text-align: center;
     margin-bottom: 30px;
-    /* LINHA ATUALIZADA: Sombra de texto removida */
     text-shadow: none; 
 }
 
+/* Layout de Duas Colunas para Desktop/Tablet */
 .conteudo-duas-colunas {
     display: flex;
     gap: 40px;
@@ -82,13 +82,11 @@ body {
     color: var(--cor-texto);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    margin-left: -1px; /* Ajuste visual */
-    /* Box shadow menor no botão, usando a cor nova */
+    margin-left: -1px; 
     box-shadow: 0 0 5px rgba(255, 102, 0, 0.5); 
 }
 
 .btn-laranja-neon:hover {
-    /* Laranja ligeiramente mais claro no hover */
     background-color: #FF771A; 
 }
 
@@ -109,7 +107,6 @@ body {
 /* --- Área de Drag and Drop --- */
 
 .drop-area {
-    /* Borda tracejada usa o novo laranja */
     border: 3px dashed var(--cor-borda-neon);
     border-radius: 8px;
     height: 150px;
@@ -125,7 +122,6 @@ body {
 
 .drop-area.highlight {
     background-color: #333333;
-    /* Highlight usa o novo laranja */
     border-color: var(--cor-principal);
     color: var(--cor-principal);
 }
@@ -189,6 +185,64 @@ body {
     margin-top: 20px;
     text-align: center;
     font-weight: bold;
-    /* Mensagem de status usa o novo laranja */
     color: var(--cor-principal);
+}
+
+/* ======================================================= */
+/* --- MEDIA QUERIES (RESPONSIVIDADE PARA TELEFONES) --- */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Empilhamento das colunas */
+    .conteudo-duas-colunas {
+        flex-direction: column;
+        gap: 30px; /* Reduz a distância entre os blocos */
+    }
+
+    /* 2. Padding geral menor para usar mais espaço */
+    .container-principal {
+        padding: 20px;
+    }
+    
+    /* 3. Títulos menores para telas pequenas */
+    .coluna-upload h2, .coluna-paleta h2 {
+        font-size: 1.5em;
+    }
+
+    /* 4. Input e botão de escolher devem ocupar a largura total */
+    .input-container {
+        flex-direction: column;
+    }
+
+    #file-name {
+        border-radius: 4px; /* Remove o ajuste de canto */
+        margin-bottom: 10px;
+    }
+
+    .btn-laranja-neon {
+        border-radius: 4px; 
+        margin-left: 0;
+    }
+    
+    /* 5. Centraliza o botão 'Limpar' */
+    .btn-limpar {
+        max-width: none;
+        width: 100%;
+    }
+
+    /* 6. Quadrados de cor ligeiramente menores para caber mais na linha */
+    .cor-quadrado {
+        width: 65px;
+        height: 65px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    /* 7. Ajuste fino em telas muito pequenas */
+    .cor-quadrado {
+        width: 55px;
+        height: 55px;
+    }
 }
